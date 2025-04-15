@@ -1,0 +1,129 @@
+name: health_booster
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # ─────────────────────────────────────────────
+  # 🔧 State Management & Dependency Injection
+  # ─────────────────────────────────────────────
+  bloc: ^9.0.0                  # Reactive state management
+  get_it: ^8.0.3                    # Dependency injection container
+  freezed_annotation: ^2.4.4       # For immutable model classes
+  freezed: ^2.5.2                   # Codegen for freezed models
+  json_annotation: ^4.9.0          # For JSON serialization with freezed
+  equatable: ^2.0.7                # Value equality for model comparison
+
+  # ─────────────────────────────────────────────
+  # 🚀 Routing / Navigation
+  # ─────────────────────────────────────────────
+  auto_route: ^9.2.2               # Route generation and deep linking
+
+  # ─────────────────────────────────────────────
+  # 🎨 UI / Design
+  # ─────────────────────────────────────────────
+  flex_color_scheme: ^8.0.2        # Advanced theming support
+  google_fonts: ^6.2.1             # Use Google Fonts in your app
+  typethis: ^1.0.3                 # Typing animation effect
+  cached_network_image: ^3.3.1     # Image caching
+  extended_image: ^9.1.0           # Advanced image features like zoom, crop
+  dropdown_button2: ^2.3.9         # Advanced customizable dropdown widget
+
+  # ─────────────────────────────────────────────
+  # 📦 Utils & Helpers
+  # ─────────────────────────────────────────────
+  nb_utils: ^7.0.10                # Utility functions & widgets
+  collection: ^1.18.0              # Utility extensions for collections
+  built_collection: ^5.1.1         # Immutable collection support
+  intl: ^0.19.0                    # Date/time formatting
+  jiffy: ^6.3.1                    # Human-readable date/time manipulation
+  jwt_decode: ^0.3.1               # Decode JWT tokens
+
+  # ─────────────────────────────────────────────
+  # 📂 Local Storage
+  # ─────────────────────────────────────────────
+  flutter_secure_storage: ^9.2.2   # Secure key-value storage
+
+  # ─────────────────────────────────────────────
+  # 🌐 Network & API
+  # ─────────────────────────────────────────────
+  dio: ^5.4.0                      # HTTP client for API requests
+  pretty_dio_logger: ^1.3.1        # Log Dio requests for debugging
+
+  # ─────────────────────────────────────────────
+  # 📁 File Handling
+  # ─────────────────────────────────────────────
+  path: ^1.9.0                     # Path operations
+  mime: ^2.0.0                     # Handle MIME types
+  file_picker: ^10.0.0             # File selection from device
+
+  # ─────────────────────────────────────────────
+  # 🧠 Supabase Backend
+  # ─────────────────────────────────────────────
+  supabase_flutter: ^2.8.4         # Supabase integration
+
+  # ─────────────────────────────────────────────
+  # 🔗 Deep Linking / External Intents
+  # ─────────────────────────────────────────────
+  url_launcher: ^6.2.5             # Open links, call, email, etc.
+
+  # ─────────────────────────────────────────────
+  # 🔌 GraphQL Support
+  # ─────────────────────────────────────────────
+  graphql_flutter: ^5.2.0-beta.7   # GraphQL client for Flutter
+  ferry: ^0.16.0+1                 # Another GraphQL client with caching support
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0             # Recommended lint rules for clean code
+
+  # ─────────────────────────────────────────────
+  # 🛠️ Code Generators
+  # ─────────────────────────────────────────────
+  build_runner: ^2.4.12             # Base generator for code-gen tools
+
+  json_serializable: ^6.8.0         # For generating `fromJson/toJson` methods
+
+  auto_route_generator: ^9.0.0      # AutoRoute's route generation support
+
+  ferry_generator: ^0.12.0          # GraphQL (ferry) client code generator
+
+  drift_dev: ^2.18.0                # Generator for Drift (local DB)
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - fonts/
+    - assets/images/
+    - assets/icons/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: fonts/Poppins/Poppins-Thin.ttf
+          weight: 100
+        - asset: fonts/Poppins/Poppins-ExtraLight.ttf
+          weight: 200
+        - asset: fonts/Poppins/Poppins-Light.ttf
+          weight: 300
+        - asset: fonts/Poppins/Poppins-Regular.ttf
+          weight: 400
+        - asset: fonts/Poppins/Poppins-Medium.ttf
+          weight: 500
+        - asset: fonts/Poppins/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: fonts/Poppins/Poppins-Bold.ttf
+          weight: 700
+        - asset: fonts/Poppins/Poppins-ExtraBold.ttf
+          weight: 800
+        - asset: fonts/Poppins/Poppins-Black.ttf
+          weight: 900
