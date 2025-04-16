@@ -1,0 +1,1 @@
+const myAppName = "Healthy Life";

@@ -7,7 +7,7 @@ class AppTheme {
   const AppTheme._();
 
   // 🎨 Define the primary Flex color scheme for the app (using built-in blue tones)
-  static const appFlexSchemeColor = FlexScheme.blue;
+  static const appFlexSchemeColor = FlexScheme.jungle;
 
   // 🎨 Custom SchemeColor used for TabBar & FAB foreground/background
   static const _onPrimaryColor = SchemeColor.onPrimary;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:health_booster/core/constants/constant.dart';
 import 'package:health_booster/core/theme/app_theme.dart';
 import 'package:health_booster/injection.dart';
 import 'package:health_booster/routes/app_route.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
 
     bool isLightBrightness = brightness == Brightness.light;
     return MaterialApp.router(
-      title: "Health",
+      title: myAppName,
       theme: isLightBrightness ? AppTheme.light : AppTheme.dark,
       routerConfig: appRouter.config(),
     );
