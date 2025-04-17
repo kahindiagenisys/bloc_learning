@@ -61,7 +61,7 @@ class SplashRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return SplashScreen();
+      return const SplashScreen();
     },
   );
 }

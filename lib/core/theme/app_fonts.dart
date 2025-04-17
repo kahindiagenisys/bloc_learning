@@ -2,9 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppFonts {
+  // Define your custom font styles here
+
+
+
+  static TextStyle get displayBold => const TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 35,
+      );
+
+  static TextStyle get display => const TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 30,
+      );
+
   static TextStyle get headline => const TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 24,
+      );
+
+  static TextStyle get title => const TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 20,
+      );
+
+  static TextStyle get subtitle => const TextStyle(
+        fontWeight: FontWeight.w600,
+        fontSize: 18,
       );
 
   static TextStyle get body => const TextStyle(
@@ -12,10 +36,19 @@ class AppFonts {
         fontSize: 16,
       );
 
+  static TextStyle get label => const TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: 14,
+      );
+
+
+
   static TextStyle get labelBold => const TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: 14,
       );
+
+
 
   static TextStyle get caption => const TextStyle(
         fontWeight: FontWeight.w400,
@@ -23,12 +56,8 @@ class AppFonts {
         color: Colors.grey,
       );
 
-  // You can even make dark/light aware:
-  static TextStyle coloredHeadline(Brightness brightness) => TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.w600,
-        color: brightness == Brightness.dark ? Colors.white : Colors.black,
-      );
+
+
 
   static TextTheme getAppTextTheme(Brightness brightness) {
     // Base Poppins fallback

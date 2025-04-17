@@ -11,37 +11,45 @@ import 'package:nb_utils/nb_utils.dart';
 import 'package:typethis/typethis.dart';
 
 @RoutePage()
-class SplashScreen extends StatelessWidget {
-  SplashScreen({super.key});
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
   final animationSpeed = 200;
+
   final _splash = injection<SplashBloc>();
 
   @override
-  Widget build(BuildContext context) {
-    final color = context.colorScheme;
-    log("Build call in splash screen");
+  void initState() {
     _splash.add(
-      SplashInitialEvent(appNameLength: myAppName.length, animationSpeed: 200),
+      SplashInitialEvent(
+        appNameLength: myAppName.length,
+        animationSpeed: 200,
+      ),
     );
+    super.initState();
+  }
 
-    return BlocListener<SplashBloc, SplashState>(
-      listener: (BuildContext context, Object? state) {
-        if (state is SplashNavigateToHomeState) {
-          context.router.replaceAll([const HomeRoute()]);
-        } else if (state is SplashNavigateToLoginState) {
-          context.router.replaceAll([const SingInRoute()]);
-        }
-      },
-      child: Scaffold(
-        backgroundColor: color.primary,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            buildSplashIcon(context),
-            20.height,
-            buildSplashText(context),
-          ],
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider.value(
+      value: _splash,
+      child: BlocListener<SplashBloc, SplashStatusState>(
+        listener: _splashBlocListen,
+        child: Scaffold(
+          backgroundColor: context.colorScheme.primary,
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              buildSplashIcon(context),
+              20.height,
+              buildSplashText(context),
+            ],
+          ),
         ),
       ),
     );
@@ -68,5 +76,13 @@ class SplashScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _splashBlocListen(BuildContext context, SplashStatusState state) {
+    if (state == SplashStatusState.navigateToHome) {
+      context.router.replaceAll([const HomeRoute()]);
+    } else if (state == SplashStatusState.navigateToLogin) {
+      context.router.replaceAll([const SingInRoute()]);
+    }
   }
 }
