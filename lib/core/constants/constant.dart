@@ -1,1 +1,1 @@
-const myAppName = "Healthy Life";
+const myAppName = "My Money";
