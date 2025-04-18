@@ -5,8 +5,10 @@ import 'package:get_it/get_it.dart';
 import 'package:health_booster/core/constants/constant.dart';
 import 'package:health_booster/core/services/secure_storage/secure_storage.dart';
 import 'package:health_booster/data/repositories/sign_in/sign_in_repository.dart';
+import 'package:health_booster/data/repositories/sign_up/sign_up_repository.dart';
 import 'package:health_booster/features/profile/bloc/profile_bloc.dart';
 import 'package:health_booster/features/sign_in/bloc/sign_in_bloc.dart';
+import 'package:health_booster/features/sign_up/bloc/sign_up_bloc.dart';
 import 'package:health_booster/features/splash/bloc/splash_bloc.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -31,8 +33,10 @@ Future<void> _supabaseInitialized() async {
 Future<void> setupInjection() async {
   injection.registerSingleton<SecureStorageService>(SecureStorageService());
   injection.registerSingleton<SignInRepository>(SignInRepository());
+  injection.registerSingleton<SignUpRepository>(SignUpRepository());
 
   injection.registerLazySingleton<SplashBloc>(() => SplashBloc());
   injection.registerLazySingleton<SignInBloc>(() => SignInBloc());
+  injection.registerLazySingleton<SignUpBloc>(() => SignUpBloc());
   injection.registerLazySingleton<ProfileBloc>(() => ProfileBloc());
 }

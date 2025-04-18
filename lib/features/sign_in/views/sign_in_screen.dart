@@ -11,17 +11,18 @@ import 'package:health_booster/core/widgets/buttons/focus_mode_manager_widget.da
 import 'package:health_booster/core/widgets/text_field/text_field_widget.dart';
 import 'package:health_booster/features/sign_in/bloc/sign_in_bloc.dart';
 import 'package:health_booster/injection.dart';
+import 'package:health_booster/routes/app_route.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 @RoutePage()
-class SingInScreen extends StatefulWidget {
-  const SingInScreen({super.key});
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({super.key});
 
   @override
-  State<SingInScreen> createState() => _SingInScreenState();
+  State<SignInScreen> createState() => _SignInScreenState();
 }
 
-class _SingInScreenState extends State<SingInScreen> {
+class _SignInScreenState extends State<SignInScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
@@ -41,6 +42,7 @@ class _SingInScreenState extends State<SingInScreen> {
               child: BlocProvider.value(
                 value: _signIn,
                 child: BlocConsumer<SignInBloc, SignInState>(
+                  listener: _stateListener,
                   builder: (context, state) {
                     bool isSignInLoading = state is SignInLoading;
 
@@ -49,7 +51,6 @@ class _SingInScreenState extends State<SingInScreen> {
                       child: Form(
                         key: _formKey,
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const SizedBox(height: 100),
@@ -107,10 +108,15 @@ class _SingInScreenState extends State<SingInScreen> {
                                   style: AppFonts.caption,
                                 ),
                                 const SizedBox(width: 5),
-                                Text(
-                                  "Sign Up",
-                                  style: AppFonts.label
-                                      .copyWith(color: color.primary),
+                                GestureDetector(
+                                  onTap: () {
+                                    _signIn.add(SignUpSelectionEvent());
+                                  },
+                                  child: Text(
+                                    "Sign Up",
+                                    style: AppFonts.label
+                                        .copyWith(color: color.primary),
+                                  ),
                                 ),
                               ],
                             ),
@@ -120,7 +126,6 @@ class _SingInScreenState extends State<SingInScreen> {
                       ),
                     );
                   },
-                  listener: (context, state) {},
                 ),
               ),
             ),
@@ -137,9 +142,19 @@ class _SingInScreenState extends State<SingInScreen> {
     closeKeyboard;
 
     // Perform sign-in logic here
-    final email = _emailController.text.trim();
+    final email = _emailController.text.trim().toLowerCase();
     final password = _passwordController.text.trim();
 
     _signIn.add(SignInButtonPressed(email: email, password: password));
+  }
+
+  void _stateListener(BuildContext context, SignInState state) {
+    if (state is SignInSuccess) {
+      context.router.replaceAll([const HomeRoute()]);
+    } else if (state is SignInFailure) {
+      showErrorMessage(state.error);
+    } else if (state is SignUpSelection) {
+      context.router.push(const SignUpRoute());
+    }
   }
 }

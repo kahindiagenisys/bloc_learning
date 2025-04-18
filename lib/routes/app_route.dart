@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:health_booster/features/home/views/home_screen.dart';
 import 'package:health_booster/features/sign_in/views/sign_in_screen.dart';
+import 'package:health_booster/features/sign_up/views/sign_up_screen.dart' show SignUpScreen;
 import 'package:health_booster/features/splash/views/splash_screen.dart';
 
 part 'app_route.gr.dart';
@@ -14,10 +15,13 @@ class AppRouter extends RootStackRouter {
           page: SplashRoute.page,
         ),
         AutoRoute(
-          page: SingInRoute.page,
+          page: SignInRoute.page,
         ),
         AutoRoute(
           page: HomeRoute.page,
         ),
+        AutoRoute(
+          page: SignUpRoute.page,
+        )
       ];
 }

@@ -11,3 +11,5 @@ class SignInButtonPressed extends SignInEvent {
     required this.password,
   });
 }
+
+class SignUpSelectionEvent extends SignInEvent {}

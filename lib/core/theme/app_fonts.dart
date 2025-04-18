@@ -37,7 +37,7 @@ class AppFonts {
       );
 
   static TextStyle get label => const TextStyle(
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w400,
         fontSize: 14,
       );
 

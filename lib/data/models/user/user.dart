@@ -11,6 +11,7 @@ class User with _$User {
     required String id,
     required String email,
     required String role,
+    required String fullName,
     String? accessToken,
     String? refreshToken,
     required DateTime createdAt,
@@ -21,14 +22,16 @@ class User with _$User {
 
   factory User.fromSupabase(AuthResponse response) {
     final rawUser = response.user!;
+
     return User(
       id: rawUser.id,
-      email: rawUser.email ?? '',
+      fullName: rawUser.userMetadata?['full_name'],
+      email: rawUser.email.orEmpty,
       role: rawUser.role ?? 'authenticated',
       accessToken: response.session?.accessToken,
       refreshToken: response.session?.refreshToken,
-      createdAt: rawUser.createdAt.toFormatDateTryParse!,
-      updatedAt: rawUser.updatedAt.toFormatDateTryParse,
+      createdAt: rawUser.createdAt.toDateTime!,
+      updatedAt: rawUser.updatedAt.toDateTime,
     );
   }
 }

@@ -29,20 +29,39 @@ class HomeRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [SingInScreen]
-class SingInRoute extends PageRouteInfo<void> {
-  const SingInRoute({List<PageRouteInfo>? children})
+/// [SignInScreen]
+class SignInRoute extends PageRouteInfo<void> {
+  const SignInRoute({List<PageRouteInfo>? children})
       : super(
-          SingInRoute.name,
+          SignInRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'SingInRoute';
+  static const String name = 'SignInRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const SingInScreen();
+      return const SignInScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [SignUpScreen]
+class SignUpRoute extends PageRouteInfo<void> {
+  const SignUpRoute({List<PageRouteInfo>? children})
+      : super(
+          SignUpRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SignUpRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SignUpScreen();
     },
   );
 }

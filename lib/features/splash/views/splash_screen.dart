@@ -82,7 +82,7 @@ class _SplashScreenState extends State<SplashScreen> {
     if (state == SplashStatusState.navigateToHome) {
       context.router.replaceAll([const HomeRoute()]);
     } else if (state == SplashStatusState.navigateToLogin) {
-      context.router.replaceAll([const SingInRoute()]);
+      context.router.replaceAll([const SignInRoute()]);
     }
   }
 }

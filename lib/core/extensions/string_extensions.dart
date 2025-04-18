@@ -2,8 +2,6 @@ import 'package:intl/intl.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 extension StringExtension on String? {
-
-
   bool get isEmptyOrNullValue =>
       this == null || this!.trim().isEmpty || this == "null";
 
@@ -72,5 +70,10 @@ extension StringExtension on String? {
   DateTime? get toFormatDateTryParse {
     if (isEmptyOrNullValue) return null;
     return DateFormat('dd MMM yyyy').tryParse(this!);
+  }
+
+  DateTime? get toDateTime {
+    if (isEmptyOrNullValue) return null;
+    return DateTime.tryParse(this!);
   }
 }
