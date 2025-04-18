@@ -9,7 +9,7 @@ import 'package:health_booster/core/validations/validations.dart';
 import 'package:health_booster/core/widgets/buttons/app_button_widget.dart';
 import 'package:health_booster/core/widgets/buttons/focus_mode_manager_widget.dart';
 import 'package:health_booster/core/widgets/text_field/text_field_widget.dart';
-import 'package:health_booster/features/sing_in/bloc/sign_in_bloc.dart';
+import 'package:health_booster/features/sign_in/bloc/sign_in_bloc.dart';
 import 'package:health_booster/injection.dart';
 import 'package:nb_utils/nb_utils.dart';
 
