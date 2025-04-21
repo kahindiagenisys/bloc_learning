@@ -6,6 +6,7 @@ abstract class SignInRepositoryInterface {
     required String password,
   });
 
-  Future<void> logout();
+  Future<User?> getLastAuthenticatedUser();
 
+  Future<void> logout();
 }

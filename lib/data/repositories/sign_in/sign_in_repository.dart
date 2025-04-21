@@ -52,4 +52,9 @@ class SignInRepository implements SignInRepositoryInterface {
       throw ErrorException(e.toString());
     }
   }
+
+  @override
+  Future<user_model.User?> getLastAuthenticatedUser() async {
+    return await _storage.getLastAuthenticatedUser();
+  }
 }

@@ -299,3 +299,4 @@ app.*.map.json
 /android/app/.cxx/RelWithDebInfo/2t5t483i/x86_64/CMakeFiles/TargetDirectories.txt
 /lib/data/models/user/user.freezed.dart
 /lib/data/models/user/user.g.dart
+/test/mocks.mocks.dart

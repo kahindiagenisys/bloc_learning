@@ -35,8 +35,10 @@ Future<void> setupInjection() async {
   injection.registerSingleton<SignInRepository>(SignInRepository());
   injection.registerSingleton<SignUpRepository>(SignUpRepository());
 
+
+
+  injection.registerSingleton<ProfileBloc>(ProfileBloc());
   injection.registerLazySingleton<SplashBloc>(() => SplashBloc());
   injection.registerLazySingleton<SignInBloc>(() => SignInBloc());
   injection.registerLazySingleton<SignUpBloc>(() => SignUpBloc());
-  injection.registerLazySingleton<ProfileBloc>(() => ProfileBloc());
 }

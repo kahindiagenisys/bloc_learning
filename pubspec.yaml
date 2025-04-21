@@ -100,6 +100,12 @@ dev_dependencies:
 
   drift_dev: ^2.18.0                # Generator for Drift (local DB)
 
+  # ─────────────────────────────────────────────
+  # 🧩 Flutter Testing
+  # ─────────────────────────────────────────────
+  mockito: ^5.4.5              # Mocking library for unit tests
+  bloc_test: ^10.0.0        # Testing library for Bloc
+
 flutter:
   uses-material-design: true
 

@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:health_booster/core/services/secure_storage/secure_storage.dart';
+import 'package:health_booster/data/repositories/sign_in/sign_in_repository.dart';
 import 'package:health_booster/features/profile/bloc/profile_bloc.dart';
 import 'package:health_booster/injection.dart';
 
@@ -7,8 +7,8 @@ part 'splash_event.dart';
 part 'splash_state.dart';
 
 class SplashBloc extends Bloc<SplashEvent, SplashStatusState> {
-  final _storage = injection<SecureStorageService>();
   final _profile = injection<ProfileBloc>();
+  final _signIn = injection<SignInRepository>();
 
   SplashBloc() : super(SplashStatusState.initial) {
     // Listen for SplashInitialEvent
@@ -30,8 +30,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashStatusState> {
   }
 
   Future<bool> checkAuthStatus() async {
-    final lastAuthenticateUser = await _storage.getLastAuthenticatedUser();
-
+    final lastAuthenticateUser = await _signIn.getLastAuthenticatedUser();
     if (lastAuthenticateUser != null) {
       _profile.add(SetProfileEvent(lastAuthenticateUser));
 
